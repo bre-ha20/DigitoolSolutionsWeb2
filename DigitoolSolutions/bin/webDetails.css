@@ -10,5 +10,15 @@
 	}
 
 	.scroll-bar:vertical .thumb {
-			-fx-background-color: #cc0000;
+			-fx-background-color: lightgrey;
+	}
+	
+	.learn-more .button {
+			-fx-text-fill: white;
+			-fx-background-color: black;
+			-fx-background-radius: 15px;
+	}
+	
+	.separator {
+			-fx-background-color: black;
 	}

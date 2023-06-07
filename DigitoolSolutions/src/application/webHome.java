@@ -29,11 +29,14 @@ public class webHome extends Application{
 		WebEngine webEngine = webView.getEngine();
 		
 		
-		//Create BorderPane/Grid/Scroll
+		//Create BorderPane/Grid/Scroll/Separator
 		BorderPane pane = new BorderPane();
 		VBox cent = new VBox();
-		
+		cent.setStyle("-fx-background-color: lightgrey");
 		cent.setAlignment(Pos.TOP_CENTER);
+		
+		Separator div = new Separator();
+		
 		ScrollPane scroll = new ScrollPane();
 		
 		grid.setTranslateX(0);
@@ -66,28 +69,16 @@ public class webHome extends Application{
 		seelog.setFitWidth(20);
 		logo.setGraphic(seelog);
 		
+		Button comp = new Button("Our Company");
+		Button prod = new Button("Our Products");
+		Button sup = new Button("Support");
+		
 		Button search = new Button();
 		Image icon = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\search-icon.png"));
 		ImageView seeicon = new ImageView(icon);
 		seeicon.setFitHeight(20);
 		seeicon.setFitWidth(20);
 		search.setGraphic(seeicon);
-		
-		Button comp = new Button("Our Company");
-		Button prod = new Button("Our Products");
-		Button sup = new Button("Support");
-		
-		//Label of top
-		Label top = new Label("Digitool Solutions: Over 30 Years of Expertise in the Torue Industry");
-		Label sub = new Label("We provide a full line of digitally controlled torque systems with tooling, specifications, and units to fit your needs");
-		
-		HBox h1 = new HBox(top);
-		h1.setStyle("-fx-font-size: 35px;" + "-fx-font-family: Century;");
-		h1.setAlignment(Pos.CENTER);
-		HBox h2 = new HBox(sub);
-		h2.setStyle("-fx-font-size: 20px;" +"-fx-font-family: Century;");
-		h2.setAlignment(Pos.CENTER);
-		HBox mytop = new HBox(h1, h2);
 				
 		//Adding new grid to place menu items
 		GridPane grid2 = new GridPane();
@@ -111,7 +102,6 @@ public class webHome extends Application{
 		GridPane.setHalignment(prod, HPos.CENTER);
 		GridPane.setHalignment(sup, HPos.CENTER);
 		GridPane.setHalignment(search, HPos.CENTER);
-		GridPane.setHalignment(top, HPos.CENTER);
 		
 		double prefWidth = Screen.getPrimary().getVisualBounds().getWidth();
 		scroll.widthProperty().addListener((observable, oldValue, newValue) -> {
@@ -127,10 +117,35 @@ public class webHome extends Application{
         });
 		
 		//GRIDS 
-		cent.getChildren().addAll(grid2, h1, h2, scroll);
+		cent.getChildren().addAll(grid2, scroll);
 		cent.setAlignment(Pos.TOP_CENTER);
 		cent.setFillWidth(true);
 		pane.setCenter(cent);
+		
+		/* MAKING TOP LABEL */
+		
+		GridPane grid0 = new GridPane();
+		grid0.setAlignment(Pos.CENTER);
+		grid0.setPadding(new Insets(10));
+		grid0.setGridLinesVisible(true);
+		
+		Label top = new Label("Digitool Solutions: Over 30 Years of Expertise in the Torue Industry");
+		top.setWrapText(true);
+		Label sub = new Label("We provide a full line of digitally controlled torque systems with tooling, specifications, and units to fit your needs");
+		sub.setWrapText(true);
+				
+		HBox h1 = new HBox(top);
+		h1.setStyle("-fx-font-size: 30px;" + "-fx-font-family: Century;");
+		h1.setAlignment(Pos.CENTER);
+		HBox h2 = new HBox(sub);
+		h2.setStyle("-fx-font-size: 20px;" +"-fx-font-family: Century;");
+		h2.setAlignment(Pos.CENTER);
+		VBox mytop = new VBox(h1, h2);
+		
+		grid0.add(mytop, 0, 0);
+		grid.add(grid0, 0, 0);
+		
+		
 		
 		/* MAKING GRID3 FOR IMAGE AND ACCURACY */
 		
@@ -197,7 +212,7 @@ public class webHome extends Application{
 		
 		grid3.add(seesketch, 0, 0);
 		grid3.add(info, 1, 0);
-		grid.add(grid3, 0, 0);
+		grid.add(grid3, 0, 1);
 		/* END OF GRID3 */
 		
 		
@@ -207,6 +222,7 @@ public class webHome extends Application{
 		grid4.setAlignment(Pos.CENTER);
 		grid4.setPadding(new Insets(10));
 		grid4.setGridLinesVisible(true);
+		grid4.getStyleClass().add("learn-more");
 		
 		Label ewrench = new Label("Electronic Torque and Angle Wrenches");
 		ewrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Century;");
@@ -241,7 +257,7 @@ public class webHome extends Application{
 		
 		grid4.add(ew1, 0, 0);
 		//grid4.add(epicbox, 0, 0);
-		grid.add(grid4, 0, 1);
+		grid.add(grid4, 0, 2);
 		/* END OF GRID4 */
 		
 		
@@ -251,6 +267,7 @@ public class webHome extends Application{
 		grid5.setAlignment(Pos.CENTER);
 		grid5.setPadding(new Insets(10));
 		grid5.setGridLinesVisible(true);
+		grid5.getStyleClass().add("learn-more");
 		
 		Label twrench = new Label("Mechanical Torque Wrenches");
 		twrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Century;");
@@ -264,7 +281,6 @@ public class webHome extends Application{
 		
 		Button twrenchlearn = new Button("Learn More");
 		twrenchlearn.setAlignment(Pos.CENTER);
-
 		
 		//change picture!
 		Image tpic = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\TorqueWrench.png"));
@@ -286,7 +302,7 @@ public class webHome extends Application{
 		
 		grid5.add(tw1, 0, 0);
 		//grid5.add(tpicbox, 0, 0);
-		grid.add(grid5, 0, 2);
+		grid.add(grid5, 0, 3);
 		/* END OF GRID5 */
 		
 		/* MAKING GRID6 FOR TORQUE TESTERS */
@@ -295,6 +311,7 @@ public class webHome extends Application{
 		grid6.setAlignment(Pos.CENTER);
 		grid6.setPadding(new Insets(10));
 		grid6.setGridLinesVisible(true);
+		grid6.getStyleClass().add("learn-more");
 		
 		Label ttester = new Label("Torque Testers");
 		ttester.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Century;");
@@ -307,7 +324,7 @@ public class webHome extends Application{
 		ttesterinfo.setWrapText(true);
 		
 		Button ttesterlearn = new Button("Learn More");
-		twrenchlearn.setAlignment(Pos.CENTER);
+		ttesterlearn.setAlignment(Pos.CENTER);
 		
 		//NEED TO ADD IMAGE
 			//Image ttpic = new Image(new FileInputStream(""));
@@ -329,7 +346,7 @@ public class webHome extends Application{
 		
 		grid6.add(tt1, 0, 0);
 		//grid6.add(ttpicbox, 0, 0);
-		grid.add(grid6, 0, 3);
+		grid.add(grid6, 0, 4);
 		/* END OF GRID6 */
 		
 		/* MAKING GRID7 FOR TORQUE METERS */
@@ -338,6 +355,7 @@ public class webHome extends Application{
 		grid7.setAlignment(Pos.CENTER);
 		grid7.setPadding(new Insets(10));
 		grid7.setGridLinesVisible(true);
+		grid7.getStyleClass().add("learn-more");
 		
 		Label tm = new Label("Torque Meters");
 		tm.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Century;");
@@ -372,7 +390,7 @@ public class webHome extends Application{
 		
 		grid7.add(tm1, 0, 0);
 		//grid7.add(tmpicbox, 0, 0);
-		grid.add(grid7, 0, 4);
+		grid.add(grid7, 0, 5);
 		/* ENF OF GRID7 */
 		
 		/* MAKING GRID8 FOR TORQUE AND ANGLE METERS */
@@ -380,6 +398,7 @@ public class webHome extends Application{
 		grid8.setAlignment(Pos.CENTER);
 		grid8.setPadding(new Insets(10));
 		grid8.setGridLinesVisible(true);
+		grid8.getStyleClass().add("learn-more");
 		
 		Label tam = new Label("Torque and Anlge Meters");
 		tam.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Century;");
@@ -414,7 +433,7 @@ public class webHome extends Application{
 		
 		grid8.add(tam1, 0, 0);
 		//grid8.add(tampicbox, 0, 0);
-		grid.add(grid8, 0, 5);
+		grid.add(grid8, 0, 6);
 		/* END OF GRID8 */
 		
 		/* MAKING GRID9 FOR MULTIPLIERS*/
@@ -423,6 +442,7 @@ public class webHome extends Application{
 		grid9.setAlignment(Pos.CENTER);
 		grid9.setPadding(new Insets(10));
 		grid9.setGridLinesVisible(true);
+		grid9.getStyleClass().add("learn-more");
 		
 		Label m = new Label("Multipliers");
 		m.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Century;");
@@ -457,7 +477,7 @@ public class webHome extends Application{
 		
 		grid9.add(m1, 0, 0);
 		//grid9.add(mpicbox, 0, 0);
-		grid.add(grid9, 0, 6);
+		grid.add(grid9, 0, 7);
 		/* END OF GRID9 */
 		
 		
