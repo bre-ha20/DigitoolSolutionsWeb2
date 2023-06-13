@@ -127,7 +127,7 @@ public class webHome extends Application{
 		GridPane grid0 = new GridPane();
 		grid0.setAlignment(Pos.CENTER);
 		grid0.setPadding(new Insets(10));
-		grid0.setGridLinesVisible(true);
+		grid0.setGridLinesVisible(false);
 		
 		Label top = new Label("Digitool Solutions: Over 30 Years of Expertise in the Torue Industry");
 		top.setWrapText(true);
@@ -221,7 +221,7 @@ public class webHome extends Application{
 		GridPane grid4 = new GridPane();
 		grid4.setAlignment(Pos.CENTER);
 		grid4.setPadding(new Insets(10));
-		grid4.setGridLinesVisible(true);
+		grid4.setGridLinesVisible(false);
 		grid4.getStyleClass().add("learn-more");
 		
 		Label ewrench = new Label("Electronic Torque and Angle Wrenches");
@@ -266,7 +266,7 @@ public class webHome extends Application{
 		GridPane grid5 = new GridPane();
 		grid5.setAlignment(Pos.CENTER);
 		grid5.setPadding(new Insets(10));
-		grid5.setGridLinesVisible(true);
+		grid5.setGridLinesVisible(false);
 		grid5.getStyleClass().add("learn-more");
 		
 		Label twrench = new Label("Mechanical Torque Wrenches");
@@ -310,7 +310,7 @@ public class webHome extends Application{
 		GridPane grid6 = new GridPane();
 		grid6.setAlignment(Pos.CENTER);
 		grid6.setPadding(new Insets(10));
-		grid6.setGridLinesVisible(true);
+		grid6.setGridLinesVisible(false);
 		grid6.getStyleClass().add("learn-more");
 		
 		Label ttester = new Label("Torque Testers");
@@ -354,7 +354,7 @@ public class webHome extends Application{
 		GridPane grid7 = new GridPane();
 		grid7.setAlignment(Pos.CENTER);
 		grid7.setPadding(new Insets(10));
-		grid7.setGridLinesVisible(true);
+		grid7.setGridLinesVisible(false);
 		grid7.getStyleClass().add("learn-more");
 		
 		Label tm = new Label("Torque Meters");
@@ -397,7 +397,7 @@ public class webHome extends Application{
 		GridPane grid8 = new GridPane();
 		grid8.setAlignment(Pos.CENTER);
 		grid8.setPadding(new Insets(10));
-		grid8.setGridLinesVisible(true);
+		grid8.setGridLinesVisible(false);
 		grid8.getStyleClass().add("learn-more");
 		
 		Label tam = new Label("Torque and Anlge Meters");
@@ -441,7 +441,7 @@ public class webHome extends Application{
 		GridPane grid9 = new GridPane();
 		grid9.setAlignment(Pos.CENTER);
 		grid9.setPadding(new Insets(10));
-		grid9.setGridLinesVisible(true);
+		grid9.setGridLinesVisible(false);
 		grid9.getStyleClass().add("learn-more");
 		
 		Label m = new Label("Multipliers");
@@ -479,6 +479,68 @@ public class webHome extends Application{
 		//grid9.add(mpicbox, 0, 0);
 		grid.add(grid9, 0, 7);
 		/* END OF GRID9 */
+		
+		/* MAKING BOTTOM OF WEBSITE WITH INFORMATION AND QUICK LINKS */
+		
+		GridPane grid10 = new GridPane();
+		grid10.setAlignment(Pos.CENTER);
+		grid10.setPadding(new Insets(10));
+		grid10.setGridLinesVisible(false);
+		
+		Image logopic = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\Logo.PNG"));
+		ImageView seelogopic = new ImageView(logopic);
+		seelogopic.setPreserveRatio(true);
+		seelogopic.setScaleX(0.50);
+		seelogopic.setScaleY(0.50);
+		//seelogopic.setFitWidth(1000);
+		//seelogopic.setFitHeight(400);
+		
+		Label com = new Label("We offer complete turnkey capabilities and create innovative, reliable, high caliber designs which not only meet, but"
+				+ " surpass customers expectations. We also provide a complete line of innovative precision calibration systems and torque measuring devices"
+				+ " as well as custom ergonomic tooling, fixtures, and adapters.");
+		com.setAlignment(Pos.CENTER);
+		com.setWrapText(true);
+		VBox combox = new VBox(10, seelogopic, com);
+		combox.setAlignment(Pos.CENTER);
+		combox.setPrefWidth(150);
+		combox.setPadding(new Insets(20));
+		
+		Label tpb = new Label("Torque Products");
+		tpb.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 15px;");
+		Button tpb1 = new Button("> Electronic Torque and Angle Wrenches");
+		Button tpb2 = new Button("> Mechanical Torque Wrenches");
+		Button tpb3 = new Button("> Torque Testers");
+		Button tpb4 = new Button("> Torque Meters");
+		Button tpb5 = new Button("> Torque and Angle Meters");
+		Button tpb6 = new Button("> Multipliers");
+		VBox tpbox = new VBox(10, tpb, tpb1, tpb2, tpb3, tpb4, tpb5, tpb6);
+		tpbox.setPadding(new Insets(20));
+		
+		Label ql = new Label("Quick Links");
+		ql.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 15px;");
+		Button qlb1 = new Button("> Our Company");
+		Button qlb2 = new Button("> FAQs");
+		Button qlb3 = new Button("> Testimonials");
+		VBox qlbox = new VBox(ql, qlb1, qlb2, qlb3);
+		qlbox.setPadding(new Insets(20));
+		
+		Label contact = new Label("Get In Touch With Us");
+		contact.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 15px;");
+		Label addy = new Label("13963 Ramona Ave. Unit #G \nChino, CA 91710 \nUSA");
+		Label phone = new Label("Phone: 909-591-9581");
+		Label fax = new Label("Fax: 909-233-6491");
+		Label email = new Label("Email: sales@digitoolsolutions.com");
+		//Label web = new Label("DigitoolSolutions.com");
+		VBox cbox = new VBox(contact, addy, phone, fax, email);
+		cbox.setPadding(new Insets(20));
+		
+		HBox bbox = new HBox(combox, tpbox, qlbox, cbox);
+		
+		grid10.add(bbox, 0, 0);
+		grid.add(grid10, 0, 8);
+		
+		
+		
 		
 		
 		
