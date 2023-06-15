@@ -4,8 +4,13 @@
 			-fx-font-size: 15px;
 	}
 	
+	.button:pressed, .button:hover, .button:showing {
+			-fx-text-fill: red;
+			
+	}
+	
 	.scroll-bar:vertical {
-			-fx-pref-width: 25;
+			-fx-pref-width: 15;
 			-fx-border-color: black;
 	}
 
@@ -22,3 +27,5 @@
 	.separator {
 			-fx-background-color: black;
 	}
+	
+	
