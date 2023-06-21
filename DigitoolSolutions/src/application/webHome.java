@@ -32,7 +32,7 @@ public class webHome extends Application{
 		//Create BorderPane/Grid/Scroll/Separator
 		BorderPane pane = new BorderPane();
 		VBox cent = new VBox();
-		cent.setStyle("-fx-background-color: white");
+		cent.setStyle("-fx-background-color: white;");
 		cent.setAlignment(Pos.TOP_CENTER);
 		
 		Separator div = new Separator();
@@ -55,20 +55,17 @@ public class webHome extends Application{
 		grid.setPadding(new Insets(10));
 		grid.setStyle("-fx-background-color: white;");
 		
-		//Column Restraints
-		ColumnConstraints col1 = new ColumnConstraints();
-		ColumnConstraints col2 = new ColumnConstraints();
-		ColumnConstraints col3 = new ColumnConstraints();
-		ColumnConstraints col4 = new ColumnConstraints();
-		ColumnConstraints col5 = new ColumnConstraints();
-		
 		
 		//creating buttons for navigation bar
+		VBox nav = new VBox();
+		nav.setAlignment(Pos.TOP_CENTER);
+		nav.setStyle("-fx-background-color: white;");
+		
 		Button logo = new Button();
-		Image log = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\Logo.jpeg"));
+		Image log = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\LogoIcon.png"));
 		ImageView seelog = new ImageView(log);
-		seelog.setFitHeight(20);
-		seelog.setFitWidth(20);
+		seelog.setFitHeight(25);
+		seelog.setFitWidth(25);
 		logo.setGraphic(seelog);
 		
 		Button comp = new Button("Our Company");
@@ -76,10 +73,10 @@ public class webHome extends Application{
 		Button sup = new Button("Support");
 		
 		Button search = new Button();
-		Image icon = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\search-icon.png"));
+		Image icon = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\search.png"));
 		ImageView seeicon = new ImageView(icon);
-		seeicon.setFitHeight(20);
-		seeicon.setFitWidth(20);
+		seeicon.setFitHeight(15);
+		seeicon.setFitWidth(15);
 		search.setGraphic(seeicon);
 				
 		//Adding new grid to place menu items
@@ -119,9 +116,12 @@ public class webHome extends Application{
         }); */
 		
 		//GRIDS 
-		cent.getChildren().addAll(grid2, scroll);
+		nav.getChildren().addAll(grid2);
+		cent.getChildren().addAll(scroll);
 		cent.setAlignment(Pos.TOP_CENTER);
 		cent.setFillWidth(true);
+		
+		pane.setTop(nav);
 		pane.setCenter(cent);
 		
 		/* MAKING TOP LABEL */
@@ -156,7 +156,12 @@ public class webHome extends Application{
 		grid3.setPadding(new Insets(15));
 		grid3.setGridLinesVisible(false);
 		
-		Image sketch = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\outlineTool.png"));
+		ColumnConstraints col3 = new ColumnConstraints();
+		col3.setHgrow(Priority.ALWAYS);
+		grid3.getColumnConstraints().add(col3);
+		
+		
+		Image sketch = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\outlineTool.png"));	
 		ImageView seesketch = new ImageView(sketch);
 		seesketch.setScaleX(0.75);
 		seesketch.setScaleY(0.75);
@@ -201,6 +206,9 @@ public class webHome extends Application{
 		accuraEx3.setAlignment(Pos.CENTER_LEFT);
 		accuraEx3.setWrapText(true);
 		
+		VBox vs = new VBox(seesketch);
+		vs.setPadding(new Insets(20));
+		
 		VBox v1 = new VBox(why);
 		v1.setPadding(new Insets(20));
 		VBox v2 = new VBox(reason, reason2);
@@ -211,27 +219,31 @@ public class webHome extends Application{
 		v4.setPadding(new Insets(10));
 		VBox info = new VBox(v1, v2, v3, v4);
 		
+		HBox v5 = new HBox(10, vs, info);
 		
-		grid3.add(seesketch, 0, 0);
-		grid3.add(info, 1, 0);
+		
+		grid3.add(v5, 0, 0);
 		grid.add(grid3, 0, 1);
 		/* END OF GRID3 */
 		
 		
 		/* MAKING GRID4 FOR Electronic TORQUE&ANGLE WRENCHES */
-		
 		GridPane grid4 = new GridPane();
 		grid4.setAlignment(Pos.CENTER);
 		grid4.setPadding(new Insets(15));
 		grid4.setGridLinesVisible(false);
 		grid4.getStyleClass().add("learn-more");
 		
-		Label ewrench = new Label("Electronic Torque and Angle Wrenches");
+		ColumnConstraints col4 = new ColumnConstraints();
+		col4.setHgrow(Priority.ALWAYS);
+		grid4.getColumnConstraints().add(col4);
+		
+		Label ewrench = new Label("Electronic Torque and Angle Wrenches\n");
 		ewrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
 		ewrench.setAlignment(Pos.CENTER);
 		ewrench.setWrapText(true);
 		
-		Label ewrenchinfo = new Label("\nPatented built in angle measurement without the need for a reference arm.");
+		Label ewrenchinfo = new Label("Patented built in angle measurement without the need for a reference arm.");
 		ewrenchinfo.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
 		ewrenchinfo.setAlignment(Pos.CENTER);
 		ewrenchinfo.setWrapText(true);
@@ -257,7 +269,7 @@ public class webHome extends Application{
 		bt1.setPadding(new Insets(20));
 		bt1.setAlignment(Pos.CENTER);
 		VBox ew1 = new VBox(ewrench, ewrenchinfo, bt1);
-		ew1.setPadding(new Insets(20));
+		ew1.setPadding(new Insets(15));
 		ew1.setAlignment(Pos.TOP_CENTER);
 		ew1.setMinWidth(1000);
 		ew1.setMinHeight(400);
@@ -277,15 +289,23 @@ public class webHome extends Application{
 		grid5.setGridLinesVisible(false);
 		grid5.getStyleClass().add("learn-more");
 		
-		Label twrench = new Label("Mechanical Torque Wrenches");
+		ColumnConstraints col5 = new ColumnConstraints();
+		col5.setHgrow(Priority.ALWAYS);
+		grid5.getColumnConstraints().add(col5);
+		
+		Label twrench = new Label("Mechanical Torque Wrenches\n");
 		twrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
 		twrench.setAlignment(Pos.CENTER);
 		twrench.setWrapText(true);
 		
-		Label twrenchinfo = new Label("\nElectronic DW-Series & Heavy Duty C-Series easy to use, No Training needed.");
-		twrenchinfo.setStyle("-fx-font-size: 12px;" + "-fx-font-family: Courier New;");
+		Label twrenchinfo = new Label("Electronic DW-Series & Heavy Duty C-Series easy to use.\n");
+		twrenchinfo.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
 		twrenchinfo.setAlignment(Pos.CENTER);
 		twrenchinfo.setWrapText(true);
+		Label twrenchinfo1 = new Label("No Training needed.");
+		twrenchinfo1.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
+		twrenchinfo1.setAlignment(Pos.CENTER);
+		twrenchinfo1.setWrapText(true);
 		
 		Button twrenchlearn = new Button("Learn More");
 		twrenchlearn.setAlignment(Pos.CENTER);
@@ -307,7 +327,7 @@ public class webHome extends Application{
 		HBox bt2 = new HBox(twrenchlearn);
 		bt2.setPadding(new Insets(20));
 		bt2.setAlignment(Pos.CENTER);
-		VBox tw1 = new VBox(twrench, twrenchinfo, bt2);
+		VBox tw1 = new VBox(twrench, twrenchinfo, twrenchinfo1, bt2);
 		tw1.setPadding(new Insets(15));
 		tw1.setAlignment(Pos.TOP_CENTER);
 		tw1.setMinWidth(1000);
@@ -326,15 +346,23 @@ public class webHome extends Application{
 		grid6.setGridLinesVisible(false);
 		grid6.getStyleClass().add("learn-more");
 		
-		Label ttester = new Label("Torque Testers");
+		ColumnConstraints col6 = new ColumnConstraints();
+		col6.setHgrow(Priority.ALWAYS);
+		grid6.getColumnConstraints().add(col6);
+		
+		Label ttester = new Label("Torque Testers\n");
 		ttester.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
 		ttester.setAlignment(Pos.CENTER);
 		ttester.setWrapText(true);
 		
-		Label ttesterinfo = new Label("Reduce down time in shops by allowing in-house checks of torque wrench calibration.");
-		ttesterinfo.setStyle("-fx-font-size: 12px;" + "-fx-font-family: Courier New;");
+		Label ttesterinfo = new Label("Reduce down time in shops by allowing in-house\n");
+		ttesterinfo.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
 		ttesterinfo.setAlignment(Pos.CENTER);
 		ttesterinfo.setWrapText(true);
+		Label ttesterinfo1 = new Label("checks of torque wrench calibration.");
+		ttesterinfo1.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
+		ttesterinfo1.setAlignment(Pos.CENTER);
+		ttesterinfo1.setWrapText(true);
 		
 		Button ttesterlearn = new Button("Learn More");
 		ttesterlearn.setAlignment(Pos.CENTER);
@@ -349,17 +377,16 @@ public class webHome extends Application{
 				
 		HBox ttpicbox = new HBox(seettpic);
 		ttpicbox.setAlignment(Pos.BOTTOM_CENTER);
+		ttpicbox.setPadding(new Insets(-20));
 		
 		HBox color2 = new HBox();
 		color2.setStyle("-fx-background-color: GhostWhite;");
 		
 		HBox bt3 = new HBox(ttesterlearn);
-		bt3.setPadding(new Insets(5));
+		bt3.setPadding(new Insets(20));
 		bt3.setAlignment(Pos.CENTER);
-		VBox tt = new VBox(ttesterinfo);
-		tt.setPadding(new Insets(15));
-		tt.setAlignment(Pos.CENTER);
-		VBox tt1 = new VBox(ttester, tt, bt3);
+		
+		VBox tt1 = new VBox(ttester, ttesterinfo, ttesterinfo1, bt3);
 		tt1.setPadding(new Insets(20));
 		tt1.setAlignment(Pos.TOP_CENTER);
 		tt1.setMinWidth(1000);
@@ -378,15 +405,23 @@ public class webHome extends Application{
 		grid7.setGridLinesVisible(false);
 		grid7.getStyleClass().add("learn-more");
 		
-		Label tm = new Label("Torque Meters");
+		ColumnConstraints col7 = new ColumnConstraints();
+		col7.setHgrow(Priority.ALWAYS);
+		grid7.getColumnConstraints().add(col7);
+		
+		Label tm = new Label("Torque Meters\n");
 		tm.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
 		tm.setAlignment(Pos.CENTER);
 		tm.setWrapText(true);
 		
-		Label tminfo = new Label("This Torque Meter can make any Square Drive hand tool into a Torque wrench. Simple to operate.");
-		tminfo.setStyle("-fx-font-size: 12px;" + "-fx-font-family: Courier New;");
+		Label tminfo = new Label("This Torque Meter can make any Square Drive hand\n");
+		tminfo.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
 		tminfo.setAlignment(Pos.CENTER);
 		tminfo.setWrapText(true);
+		Label tminfo1 = new Label("tool into a Torque wrench. Simple to operate.");
+		tminfo1.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
+		tminfo1.setAlignment(Pos.CENTER);
+		tminfo1.setWrapText(true);
 		
 		Button tmlearn = new Button("Learn More");
 		tmlearn.setAlignment(Pos.CENTER);
@@ -406,12 +441,9 @@ public class webHome extends Application{
 		color5.setStyle("-fx-background-color: GhostWhite;");
 		
 		HBox bt4 = new HBox(tmlearn);
-		bt4.setPadding(new Insets(5));
+		bt4.setPadding(new Insets(20));
 		bt4.setAlignment(Pos.CENTER);
-		VBox tm2 = new VBox(tminfo);
-		tm2.setPadding(new Insets(15));
-		tm2.setAlignment(Pos.CENTER);
-		VBox tm1 = new VBox(tm, tm2, bt4);
+		VBox tm1 = new VBox(tm, tminfo, tminfo1, bt4);
 		tm1.setPadding(new Insets(20));
 		tm1.setAlignment(Pos.TOP_CENTER);
 		tm1.setMinWidth(1000);
@@ -430,15 +462,23 @@ public class webHome extends Application{
 		grid8.setGridLinesVisible(false);
 		grid8.getStyleClass().add("learn-more");
 		
-		Label tam = new Label("Torque and Anlge Meters");
+		ColumnConstraints col8 = new ColumnConstraints();
+		col8.setHgrow(Priority.ALWAYS);
+		grid8.getColumnConstraints().add(col8);
+		
+		Label tam = new Label("Torque and Anlge Meters\n");
 		tam.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
 		tam.setAlignment(Pos.CENTER);
 		tam.setWrapText(true);
 		
-		Label taminfo = new Label("Transform any wrench or non-impact driver into a high-precision torque and angle instrument.");
-		taminfo.setStyle("-fx-font-size: 12px;" + "-fx-font-family: Courier New;");
+		Label taminfo = new Label("Transform any wrench or non-impact driver into a\n");
+		taminfo.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
 		taminfo.setAlignment(Pos.CENTER);
 		taminfo.setWrapText(true);
+		Label taminfo1 = new Label("high-precision torque and angle instrument.");
+		taminfo1.setStyle("-fx-font-size: 15px;" + "-fx-font-family: Courier New;");
+		taminfo1.setAlignment(Pos.CENTER);
+		taminfo1.setWrapText(true);
 		
 		Button tamlearn = new Button("Learn More");
 		tamlearn.setAlignment(Pos.CENTER);
@@ -458,12 +498,9 @@ public class webHome extends Application{
 		color3.setStyle("-fx-background-color: GhostWhite;");
 		
 		HBox bt5 = new HBox(tamlearn);
-		bt5.setPadding(new Insets(5));
+		bt5.setPadding(new Insets(20));
 		bt5.setAlignment(Pos.CENTER);
-		VBox tam2 = new VBox(taminfo);
-		tam2.setPadding(new Insets(15));
-		tam2.setAlignment(Pos.CENTER);
-		VBox tam1 = new VBox(tam, tam2, bt5);
+		VBox tam1 = new VBox(tam, taminfo, taminfo1, bt5);
 		tam1.setPadding(new Insets(20));
 		tam1.setAlignment(Pos.TOP_CENTER);
 		tam1.setMinWidth(1000);
@@ -532,7 +569,11 @@ public class webHome extends Application{
 		grid10.setPadding(new Insets(10));
 		grid10.setGridLinesVisible(false);
 		
-		Image logopic = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\Logo.PNG"));
+		ColumnConstraints col10 = new ColumnConstraints();
+		col10.setHgrow(Priority.ALWAYS);
+		grid10.getColumnConstraints().add(col10);
+		
+		Image logopic = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\FullLogo.png"));
 		ImageView seelogopic = new ImageView(logopic);
 		seelogopic.setPreserveRatio(true);
 		seelogopic.setScaleX(0.50);
@@ -566,7 +607,7 @@ public class webHome extends Application{
 		Button qlb1 = new Button("> Our Company");
 		Button qlb2 = new Button("> FAQs");
 		Button qlb3 = new Button("> Testimonials");
-		VBox qlbox = new VBox(ql, qlb1, qlb2, qlb3);
+		VBox qlbox = new VBox(10, ql, qlb1, qlb2, qlb3);
 		qlbox.setPadding(new Insets(20));
 		
 		Label contact = new Label("Get In Touch With Us");
@@ -576,10 +617,11 @@ public class webHome extends Application{
 		Label fax = new Label("Fax: 909-233-6491");
 		Label email = new Label("Email: sales@digitoolsolutions.com");
 		//Label web = new Label("DigitoolSolutions.com");
-		VBox cbox = new VBox(contact, addy, phone, fax, email);
+		VBox cbox = new VBox(10, contact, addy, phone, fax, email);
 		cbox.setPadding(new Insets(20));
 		
 		HBox bbox = new HBox(combox, tpbox, qlbox, cbox);
+		bbox.setAlignment(Pos.CENTER);
 		HBox color6 = new HBox();
 		color6.setStyle("-fx-background-color: WhiteSmoke;");
 		
@@ -589,14 +631,13 @@ public class webHome extends Application{
 		
 		
 		
-		
-		
-		
 		/* SETTING STAGE AND SCENE */
-		Scene scene = new Scene(pane, 1000, 1000);
+		Scene scene = new Scene(pane, 1600, 1000);
 		pane.requestFocus();
 		scene.getStylesheets().addAll("webDetails.css");
 		primaryStage.setTitle("Digitool Solutions");
+		primaryStage.setMinHeight(1000);
+		primaryStage.setMinWidth(1600);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 		
