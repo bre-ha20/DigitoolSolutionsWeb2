@@ -239,7 +239,7 @@ public class webHome extends Application{
 		grid4.getColumnConstraints().add(col4);
 		
 		Label ewrench = new Label("Electronic Torque and Angle Wrenches\n");
-		ewrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
+		ewrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 25px;" + "-fx-font-family: Courier New;");
 		ewrench.setAlignment(Pos.CENTER);
 		ewrench.setWrapText(true);
 		
@@ -263,7 +263,7 @@ public class webHome extends Application{
 		epicbox.setAlignment(Pos.BOTTOM_CENTER);
 		
 		HBox color = new HBox();
-		color.setStyle("-fx-background-color: GhostWhite;");
+		color.setStyle("-fx-background-color: WhiteSmoke;");
 		
 		HBox bt1 = new HBox(ewrenchlearn);
 		bt1.setPadding(new Insets(20));
@@ -294,7 +294,7 @@ public class webHome extends Application{
 		grid5.getColumnConstraints().add(col5);
 		
 		Label twrench = new Label("Mechanical Torque Wrenches\n");
-		twrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
+		twrench.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 25px;" + "-fx-font-family: Courier New;");
 		twrench.setAlignment(Pos.CENTER);
 		twrench.setWrapText(true);
 		
@@ -322,7 +322,7 @@ public class webHome extends Application{
 		tpicbox.setAlignment(Pos.BOTTOM_CENTER);
 		
 		HBox color4 = new HBox();
-		color4.setStyle("-fx-background-color: GhostWhite;");
+		color4.setStyle("-fx-background-color: WhiteSmoke;");
 		
 		HBox bt2 = new HBox(twrenchlearn);
 		bt2.setPadding(new Insets(20));
@@ -351,7 +351,7 @@ public class webHome extends Application{
 		grid6.getColumnConstraints().add(col6);
 		
 		Label ttester = new Label("Torque Testers\n");
-		ttester.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
+		ttester.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 25px;" + "-fx-font-family: Courier New;");
 		ttester.setAlignment(Pos.CENTER);
 		ttester.setWrapText(true);
 		
@@ -380,7 +380,7 @@ public class webHome extends Application{
 		ttpicbox.setPadding(new Insets(-20));
 		
 		HBox color2 = new HBox();
-		color2.setStyle("-fx-background-color: GhostWhite;");
+		color2.setStyle("-fx-background-color: WhiteSmoke;");
 		
 		HBox bt3 = new HBox(ttesterlearn);
 		bt3.setPadding(new Insets(20));
@@ -410,7 +410,7 @@ public class webHome extends Application{
 		grid7.getColumnConstraints().add(col7);
 		
 		Label tm = new Label("Torque Meters\n");
-		tm.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
+		tm.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 25px;" + "-fx-font-family: Courier New;");
 		tm.setAlignment(Pos.CENTER);
 		tm.setWrapText(true);
 		
@@ -438,7 +438,7 @@ public class webHome extends Application{
 		tmpicbox.setAlignment(Pos.BOTTOM_CENTER);
 		
 		HBox color5 = new HBox();
-		color5.setStyle("-fx-background-color: GhostWhite;");
+		color5.setStyle("-fx-background-color: WhiteSmoke;");
 		
 		HBox bt4 = new HBox(tmlearn);
 		bt4.setPadding(new Insets(20));
@@ -467,7 +467,7 @@ public class webHome extends Application{
 		grid8.getColumnConstraints().add(col8);
 		
 		Label tam = new Label("Torque and Anlge Meters\n");
-		tam.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 20px;" + "-fx-font-family: Courier New;");
+		tam.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 25px;" + "-fx-font-family: Courier New;");
 		tam.setAlignment(Pos.CENTER);
 		tam.setWrapText(true);
 		
@@ -495,7 +495,7 @@ public class webHome extends Application{
 		tampicbox.setAlignment(Pos.BOTTOM_CENTER);
 		
 		HBox color3 = new HBox();
-		color3.setStyle("-fx-background-color: GhostWhite;");
+		color3.setStyle("-fx-background-color: WhiteSmoke;");
 		
 		HBox bt5 = new HBox(tamlearn);
 		bt5.setPadding(new Insets(20));
@@ -623,7 +623,7 @@ public class webHome extends Application{
 		HBox bbox = new HBox(combox, tpbox, qlbox, cbox);
 		bbox.setAlignment(Pos.CENTER);
 		HBox color6 = new HBox();
-		color6.setStyle("-fx-background-color: WhiteSmoke;");
+		color6.setStyle("-fx-background-color: Gray;");
 		
 		grid10.add(color6, 0, 0);
 		grid10.add(bbox, 0, 0);

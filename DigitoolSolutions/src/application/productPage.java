@@ -93,6 +93,7 @@ public class productPage extends Application{
 		Label elec = new Label("Electronic Torque and Angle Wrenches");
 		elec.setStyle("-fx-font-family: Courier New;" + "-fx-font-size: 20px;" + "-fx-font-weight: bold;");
 		elec.setAlignment(Pos.CENTER);
+		elec.setWrapText(true);
 		HBox elecbox = new HBox(elec);
 		elecbox.setAlignment(Pos.TOP_CENTER);
 
@@ -111,15 +112,19 @@ public class productPage extends Application{
 		Label dwal = new Label("DWA Series");
 		dwal.setAlignment(Pos.CENTER);
 		dwal.setStyle("-fx-font-family: Courier New;" + "-fx-font-size: 15px;");
+		dwal.setWrapText(true);
 		Label dwal1 = new Label("Electronic Torque and Angle Wrench");
 		dwal1.setAlignment(Pos.CENTER);
 		dwal1.setStyle("-fx-font-family: Courier New;" + "-fx-font-size: 15px;");
+		dwal1.setWrapText(true);
 		VBox dwalbox = new VBox(dwal);
 		dwalbox.setAlignment(Pos.CENTER);
 		VBox dwal1box = new VBox(dwal1);
 		dwal1box.setAlignment(Pos.CENTER);
 		Button ex = new Button("Explore >");
 		ex.setAlignment(Pos.CENTER);
+		
+			
 		HBox exbox = new HBox(ex);
 		exbox.setAlignment(Pos.CENTER);
 		VBox dwall = new VBox(dwabox, dwalbox, dwal1box, exbox);
@@ -138,9 +143,11 @@ public class productPage extends Application{
 		Label dwl = new Label("DW Series");
 		dwl.setAlignment(Pos.CENTER);
 		dwl.setStyle("-fx-font-family: Courier New;" + "-fx-font-size: 15px;");
+		dwl.setWrapText(true);
 		Label dwl1 = new Label("Electronic Torque Wrench");
 		dwl1.setAlignment(Pos.CENTER);
 		dwl1.setStyle("-fx-font-family: Courier New;" + "-fx-font-size: 15px;");
+		dwl1.setWrapText(true);
 		VBox dwlbox = new VBox(dwl);
 		dwlbox.setAlignment(Pos.CENTER);
 		VBox dwl1box = new VBox(dwl1);
@@ -156,6 +163,10 @@ public class productPage extends Application{
 		VBox r1 = new VBox(elecbox, b1);
 		r1.setPadding(new Insets(15));
 		
+		HBox color1 = new HBox();
+		color1.setStyle("-fx-background-color: WhiteSmoke;");
+		
+		grid1.add(color1, 0, 0);
 		grid1.add(r1, 0, 0);
 		gridd.add(grid1, 0, 1);
 		/* END OF GRID1 */
@@ -262,6 +273,10 @@ public class productPage extends Application{
 		VBox r2 = new VBox(mechbox, b2);
 		r2.setPadding(new Insets(15));
 		
+		HBox color2 = new HBox();
+		color2.setStyle("-fx-background-color: WhiteSmoke;");
+		
+		grid2.add(color2, 0, 0);
 		grid2.add(r2, 0, 0);
 		gridd.add(grid2, 0, 2);
 		/* END OF GRID2 */
@@ -341,6 +356,10 @@ public class productPage extends Application{
 		VBox r3 = new VBox(ttbox, b3);
 		r3.setPadding(new Insets(15));
 		
+		HBox color3 = new HBox();
+		color3.setStyle("-fx-background-color: WhiteSmoke;");
+		
+		grid3.add(color3, 0, 0);
 		grid3.add(r3, 0, 0);
 		gridd.add(grid3, 0, 3);
 		/* END OF GRID3 */
@@ -421,6 +440,10 @@ public class productPage extends Application{
 		VBox r4 = new VBox(tmbox, b4);
 		r4.setPadding(new Insets(15));
 		
+		HBox color4 = new HBox();
+		color4.setStyle("-fx-background-color: WhiteSmoke;");
+		
+		grid4.add(color4, 0, 0);
 		grid4.add(r4, 0, 0);
 		gridd.add(grid4, 0, 4);
 		/* END OF GRID4 */
@@ -498,9 +521,79 @@ public class productPage extends Application{
 		VBox r5= new VBox(tambox, b5);
 		r5.setPadding(new Insets(15));
 		
+		HBox color5 = new HBox();
+		color5.setStyle("-fx-background-color: WhiteSmoke;");
+		
+		grid5.add(color5, 0, 0);
 		grid5.add(r5, 0, 0);
 		gridd.add(grid5, 0, 5);
 		/* END OF GRID5 */
+		
+		/* MAKING BOTTOM OF WEBSITE WITH INFORMATION AND QUICK LINKS */
+		GridPane grid6 = new GridPane();
+		grid6.setAlignment(Pos.CENTER);
+		grid6.setPadding(new Insets(10));
+		grid6.setGridLinesVisible(false);
+		
+		ColumnConstraints col6 = new ColumnConstraints();
+		col6.setHgrow(Priority.ALWAYS);
+		grid6.getColumnConstraints().add(col6);
+		
+		Image logopic = new Image(new FileInputStream("C:\\Users\\DTSOp\\Pictures\\Saved Pictures\\web images\\FullLogo.png"));
+		ImageView seelogopic = new ImageView(logopic);
+		seelogopic.setPreserveRatio(true);
+		seelogopic.setScaleX(0.50);
+		seelogopic.setScaleY(0.50);
+		//seelogopic.setFitWidth(1000);
+		//seelogopic.setFitHeight(400);
+		
+		Label com = new Label("We offer complete turnkey capabilities and create innovative, reliable, high caliber designs which not only meet, but"
+				+ " surpass customers expectations. We also provide a complete line of innovative precision calibration systems and torque measuring devices"
+				+ " as well as custom ergonomic tooling, fixtures, and adapters.");
+		com.setAlignment(Pos.CENTER);
+		com.setWrapText(true);
+		VBox combox = new VBox(10, seelogopic, com);
+		combox.setAlignment(Pos.CENTER);
+		combox.setPrefWidth(100);
+		combox.setPadding(new Insets(20));
+		
+		Label tpb = new Label("Torque Products");
+		tpb.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 15px;");
+		Button tpb1 = new Button("> Electronic Torque and Angle Wrenches");
+		Button tpb2 = new Button("> Mechanical Torque Wrenches");
+		Button tpb3 = new Button("> Torque Testers");
+		Button tpb4 = new Button("> Torque Meters");
+		Button tpb5 = new Button("> Torque and Angle Meters");
+		Button tpb6 = new Button("> Multipliers");
+		VBox tpbox = new VBox(10, tpb, tpb1, tpb2, tpb3, tpb4, tpb5, tpb6);
+		tpbox.setPadding(new Insets(20));
+		
+		Label ql = new Label("Quick Links");
+		ql.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 15px;");
+		Button qlb1 = new Button("> Our Company");
+		Button qlb2 = new Button("> FAQs");
+		Button qlb3 = new Button("> Testimonials");
+		VBox qlbox = new VBox(10, ql, qlb1, qlb2, qlb3);
+		qlbox.setPadding(new Insets(20));
+		
+		Label contact = new Label("Get In Touch With Us");
+		contact.setStyle("-fx-font-weight: bold;" + "-fx-font-size: 15px;");
+		Label addy = new Label("13963 Ramona Ave. Unit #G \nChino, CA 91710 \nUSA");
+		Label phone = new Label("Phone: 909-591-9581");
+		Label fax = new Label("Fax: 909-233-6491");
+		Label email = new Label("Email: sales@digitoolsolutions.com");
+		//Label web = new Label("DigitoolSolutions.com");
+		VBox cbox = new VBox(10, contact, addy, phone, fax, email);
+		cbox.setPadding(new Insets(20));
+		
+		HBox bbox = new HBox(combox, tpbox, qlbox, cbox);
+		bbox.setAlignment(Pos.CENTER);
+		HBox color6 = new HBox();
+		color6.setStyle("-fx-background-color: Gray;");
+		
+		grid6.add(color6, 0, 0);
+		grid6.add(bbox, 0, 0);
+		gridd.add(grid6, 0, 8);
 		
 		/* SETTING STAGE AND SCENE */
 		Scene scene = new Scene(pane, 1600, 1000);
